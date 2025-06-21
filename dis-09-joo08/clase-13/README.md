@@ -7,3 +7,6 @@ referencias del nuevo implemento en el canva "button"
 
 video referencia:
 https://www.youtube.com/watch?v=9WywDPOV5nA
+
+
+nuestro avance está en el repositorio de #Romicancino
