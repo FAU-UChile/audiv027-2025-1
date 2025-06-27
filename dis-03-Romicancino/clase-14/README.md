@@ -28,7 +28,7 @@ FaceMesh (ml5.js): detecta puntos clave del rostro y permite posicionar los acce
 
 como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
 
-## código del proyecto
+## código del proyecto 2
 
 ```javascript
 let video;
@@ -323,9 +323,10 @@ Para nuestro proyecto 2 existen varios posibles usos, analizando mejor nuestro e
 
 • Entretenimiento: Usar filtros temáticos siempre es una fuente de entretenimiento, se podria subir la imágen obtenida a redes sociales o hacer la foto obtenida formato sticker para  otras aplicaciones como Whatsapp o Instagram. 
 
-• Márketing : si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
+• Márketing: Si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
 
-• Educación : 
+• Educación: Se podrían cambiar los elementos para desarrollar herramientas educdtivas, por ejemplo aprender las partes de la cara.
 
-
+Dimensión ética: 
+Uno de los problemas que detectamos es que la herramienta aunque sea usada para fines de entretenimiento o educativa , si se le da mal uso al momento de descargar la imágen final  está podría contener algún tipo de virus o archivo dañiño para un computador
 
