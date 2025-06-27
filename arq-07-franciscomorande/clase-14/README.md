@@ -250,7 +250,7 @@ La primera versión se enfocó en detectar las puntas de los cinco dedos usando 
 
 ![01 dedos 2](https://github.com/user-attachments/assets/41951fd0-e89e-4456-86aa-54bc06ec3aef)
 
-![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
+
 
 Se introdujo la mecánica de detectar un solo dedo a la vez, cambiando cada cierto intervalo de tiempo. Cada 10 segundos, el sistema cambia aleatoriamente a otro dedo garantizando que no se repita el anterior. Esto a partir de otorgar a cada punto clave de cada dedo un valor entre el 1 al 5:
 
@@ -266,6 +266,8 @@ if (elapsed >= changeInterval) {
 ~~~
 
 Se trabajó además la interfaz para una experiencia fluida, una barra de progreso visual que indica el tiempo restante para el cambio. Esta versión permitió guiar al usuario de forma clara sobre qué dedo debía posicionar.
+
+![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
 
 # Etapa 3: Transiciones Suaves
 
