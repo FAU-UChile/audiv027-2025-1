@@ -8,7 +8,7 @@ integrantes:
 * Josefa Gutierrez <https://github.com/joo08>
 * Romina Cancino <https://github.com/Romicancino>
 
-## acerca del proyecto
+## Acerca del proyecto
 
 El proyecto es un filtro interactivo, el cual usa inteligencia artificial para detectar movimientos, como en este caso lo es el parpadeo, este detecta el rostro para así poder decorar con distintos accesorios con temática “Barbie” y además tiene incluido un botón que puedes usar para guardar una foto, este botón toma una captura de pantalla del Canvas al momento de presionarlo y lo guarda en el computador como descarga. El filtro está hecho con el editor web p5.js y también utiliza ayuda del modelo FaceMesh de la biblioteca ml5.js, el cual detecta puntos clave en el rostro.
 
@@ -50,7 +50,7 @@ let currentColor;
 let baseColor;
 let hoverColor;
 
-let marcoGIF; // 🎀 marco animado
+let marcoGIF; // marco animado
 
 function preload() {
   accesorios.push(loadImage('gorromujer.png'));
@@ -59,9 +59,8 @@ function preload() {
   accesorios.push(loadImage('gafashombre.png'));
   accesorios.push(loadImage('brillos.png'));
 
-  marcoGIF = createImg('marcoGIF.gif');
+  marcoGIF = createImg('marcoGIF.gif', '');
 }
-
 
 function setup() {
   createCanvas(640, 480);
@@ -74,16 +73,17 @@ function setup() {
     predictions = results;
   });
 
-  baseColor = color(255); // Blanco
-  hoverColor = color(255, 100, 100); // Rojo claro
+  baseColor = color(255);
+  hoverColor = color(255, 100, 100);
   currentColor = baseColor;
 
   createP('Estado del modelo:').id('status-label');
   createP('Cargando...').id('status');
-    // Mostrar el GIF animado como overlay encima del canvas
-  marcoGIF.position(0, 0);                      // alineado al canvas
-  marcoGIF.size(width, height);                // mismo tamaño del canvas
-  marcoGIF.style('pointer-events', 'none');    // que no bloquee clics
+
+  // Colocar el GIF animado fuera del canvas
+  marcoGIF.position(0, 0);
+  marcoGIF.size(width, height);
+  marcoGIF.style('pointer-events', 'none');
 }
 
 function modelReady() {
@@ -96,9 +96,6 @@ function draw() {
   detectarParpadeo();
   dibujarAccesorio();
   dibujarBoton();
-
-  // Dibujar marco animado al final, encima de todo
-  image(marcoGIF, 0, 0, width, height);
 
   if (blinkCooldown > 0) blinkCooldown--;
 }
@@ -131,6 +128,8 @@ function detectarParpadeo() {
     }
   }
 }
+
+// Para controlar el movimiento de los ojos
 
 function calculateEAR(p1, p2, p3, p4, p5, p6) {
   let A = dist(p2[0], p2[1], p6[0], p6[1]);
@@ -192,7 +191,11 @@ function mousePressed() {
 }
 
 function guardarImagen() {
-  saveCanvas('captura', 'png');
+  marcoGIF.hide(); // Lo oculta momentáneamente
+  setTimeout(() => {
+    saveCanvas('captura', 'png');
+    marcoGIF.show(); // Lo vuelve a mostrar después
+  }, 100);
 }
 
 ```
@@ -264,7 +267,14 @@ lo hicimos en el editor de p5.js
 
 ## documentación multimedia / audiovisual del proyecto funcionando
 
-https://github.com/user-attachments/assets/e1a056be-8911-4e14-a0a7-80cc2e08bcae
+Código de Prueba del botón dentro del canvas y guardado de imágen 
+https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
+
+
+
+https://github.com/user-attachments/assets/af6c51a6-563a-4602-9737-de6ea88f24e0
+
+
 
 
 creación del gif mediante vectores en Ilustrator y animado en Photoshop
@@ -272,6 +282,8 @@ creación del gif mediante vectores en Ilustrator y animado en Photoshop
 comparativa de los protectos en uso : 
 Proyecto 1 en uso ![image](https://github.com/user-attachments/assets/62543841-8345-4767-971c-fe75a2e86cd3)
 Proyecto 2 en uso ![image](https://github.com/user-attachments/assets/c7361bb3-12f4-47d0-851e-8adfa5f7dd9e)
+
+
 
 En la primera versión del código utilizamos el comando PoseNet, lo cual hacía que el filtro en lugar de detectar el parpadeo se cambiara con cualquier movimiento de la cara, ya para la versión final decidimos utilizar FaceMesh de ml5.js en lugar de PoseNet y esto nos ayudó a mejorar la precisión, sin embargo, aún no detectaba tal cual el pestañeo, por lo tanto agregamos el comando EAR (eye aspect ratio) que nos ayuda a integrar puntos referenciales de los ojos y utilizamos el comando earTreshold para ajustar la sensibilidad. 
 
@@ -282,8 +294,10 @@ En la segunda versión del trabajo nos enfocamos en como podíamos guardar la im
 
 Con estos elementos resueltos solo nos quedaba ver como podriamos realizar que el botón de guardado de imágen esté dentro del canvas y no afuera, como se suele encontrar de forma "pre-definida".
 
-Código de Prueba del botón dentro del canvas y guardado de imágen 
-https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
+para conseguir que el botón de guardado esté fuera del canvas necesitabamos
+
+(explicar)
+
 
 
 Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código.
@@ -293,6 +307,8 @@ Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código
 nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
 
 tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
+
+(link del botón) 
 
 usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
 
@@ -307,10 +323,10 @@ Para nuestro proyecto 2 existen varios posibles usos, analizando mejor nuestro e
 
 • Entretenimiento: Usar filtros temáticos siempre es una fuente de entretenimiento, se podria subir la imágen obtenida a redes sociales o hacer la foto obtenida formato sticker para  otras aplicaciones como Whatsapp o Instagram. 
 
-• Márketing : si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
+• Márketing: Si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
 
-• Educación : se podrían cambiar los elementos para desarrollar herramientas educdtivas, por ejemplo  aprender las partes de la cara.
+• Educación: Se podrían cambiar los elementos para desarrollar herramientas educdtivas, por ejemplo aprender las partes de la cara.
 
-
-
+Dimensión ética: 
+Uno de los problemas que detectamos es que la herramienta aunque sea usada para fines de entretenimiento o educativa , si se le da mal uso al momento de descargar la imágen final  está podría contener algún tipo de virus o archivo dañiño para un computador
 
