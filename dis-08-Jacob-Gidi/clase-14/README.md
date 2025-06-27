@@ -14,6 +14,7 @@ Mi programa base sería el juego original de la serpiente combinado a uno llamad
 
 # Serpiente Pintada.
 
+```javascript
 let gridWidth = 30;
 let gridHeight = 30;
 
@@ -196,7 +197,7 @@ function keyPressed() {
       break;
   }
 }
-
+```
 
 
 https://github.com/user-attachments/assets/f23b24b2-01eb-4004-a9e7-8082caae8a88
@@ -253,6 +254,7 @@ Luego de solucionar los problemas ya tengo todo listo.
 
 Index.html
 
+```javascript
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -277,9 +279,11 @@ Index.html
     <script src="sketch.js"></script>
   </body>
 </html>
+```
 
 Sketch.js
 
+```javascript
 let gridWidth = 50;
 let gridHeight = 50;
 
@@ -495,6 +499,7 @@ function detectDirectionFromHand() {
     }
   }
 }
+```
 
 Pagina p5.js: https://editor.p5js.org/Jacob-Gidi/sketches/4qaAd7CBP
 
