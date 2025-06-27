@@ -400,6 +400,8 @@ gradient.addColorStop(1, `rgba(0, 0, 0, ${opacidadOscuridad / 255})`);
 
 Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la totalidad de la pantalla. Tras su implementación, se documenta su correcta activación y desactivación mediante “visionReducidaActiva” y un correcto funcionamiento del suavizado y opacidad, evitando cortes abruptos o efectos inconsistentes.## Variable Enemigo que Persigue
 
+## Variable enemigo que persigue
+
 # Definición inicial  
 
 Esta funcionalidad surge como una extensión dinámica del sistema interactivo, con el propósito de introducir un comportamiento externo que reacciona al movimiento del jugador y lo obliga a moverse por la cámara. Se implementó un "enemigo virtual" que persigue constantemente al dedo activo, si logra alcanzarlo, desencadena una acción (restar tiempo de vida) y desaparece, de lo contrario desaparece por agotamiento del tiempo pre-definido.
