@@ -19,14 +19,14 @@ p5.js es una biblioteca de JavaScript diseñada para hacer accesible la programa
 ml5.js es una biblioteca de aprendizaje automático de alto nivel construida sobre TensorFlow.js. Proporciona modelos preentrenados listos para usar en aplicaciones creativas e interactivas, como clasificación de imágenes, generación de texto y detección de poses.
 FaceMesh: es un modelo que detecta más de 400 puntos clave en el rostro humano en tiempo real. Esto permite identificar partes específicas del rostro como ojos, boca, nariz y contorno facial.
 
-para resumir nuestro trabajo, ocupamos las herramientas en las siguientes cosas: 
+Para resumir nuestro trabajo, ocupamos las herramientas en las siguientes cosas: 
 p5.js: renderiza en tiempo real los gráficos, accesorios, marco y botón del filtro.
 
 FaceMesh (ml5.js): detecta puntos clave del rostro y permite posicionar los accesorios con precisión; además, identifica el parpadeo para activar el cambio de accesorios.
 
-como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
+Como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
 
-## código del proyecto 2
+## Código del proyecto 2
 
 ```javascript
 let video;
@@ -198,7 +198,7 @@ function guardarImagen() {
 
 ```
 
-el código original que citamos es
+El código original que citamos es
 
 ```javascript
 let video;
@@ -259,11 +259,11 @@ function drawKeypoints()  {
 }
 ```
 
-## enlace del proyecto: https://editor.p5js.org/joo08/sketches/8tby3pE8z
+## Enlace del proyecto: https://editor.p5js.org/joo08/sketches/8tby3pE8z
 
-lo hicimos en el editor de p5.js
+Lo hicimos en el editor de p5.js
 
-## documentación multimedia / audiovisual del proyecto funcionando
+## Documentación multimedia / audiovisual del proyecto funcionando
 
 
 
@@ -272,9 +272,9 @@ https://github.com/user-attachments/assets/af6c51a6-563a-4602-9737-de6ea88f24e0
 
 
 
-creación del gif mediante vectores en Ilustrator y animado en Photoshop
+Creación del gif mediante vectores en Ilustrator y animado en Photoshop
 ![gif proyecto](https://github.com/user-attachments/assets/e70b3e1a-f47f-4578-8b70-d403cae86c97)
-comparativa de los protectos en uso : 
+comparativa de los proyectos en uso : 
 Proyecto 1 en uso ![image](https://github.com/user-attachments/assets/62543841-8345-4767-971c-fe75a2e86cd3)
 Proyecto 2 en uso ![image](https://github.com/user-attachments/assets/c7361bb3-12f4-47d0-851e-8adfa5f7dd9e)
 
@@ -292,20 +292,18 @@ Con estos elementos resueltos solo nos quedaba ver como podriamos realizar que e
 Código de Prueba del botón dentro del canvas y guardado de imágen 
 https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
 
-
 Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código.
 
-## bibliografía
+## Bibliografía
 
-nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
+Nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
 
-tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
+Tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
 
-(link del botón) 
 
-usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
+Usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
 
-## conclusiones
+## Conclusiones
 
 Gracias a la combinación de estas herramientas, el filtro ofrece una experiencia divertida, fluida y accesible, que invita al usuario a participar mediante gestos naturales (como el parpadeo), y a interactuar con el entorno digital de manera lúdica. Además, el botón de captura añade un elemento tangible a la experiencia, permitiendo al usuario guardar un recuerdo personalizado de su paso por el filtro.
 
