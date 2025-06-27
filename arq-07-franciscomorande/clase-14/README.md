@@ -7,7 +7,7 @@ Integrantes:
 * [Francisco Morande](https://github.com/FAU-UChile/audiv027-2025-1/tree/main/arq-07-franciscomorande)
 
 
-Mi equipo de trabajo es <https://github.com/FAU-UChile/audiv027-2025-1/tree/main/arq-05-BenjaminGonzalezFAU> y <https://github.com/FAU-UChile/audiv027-2025-1/tree/main/arq-09-IgnaciaUch>, entregamos en el repositorio en este [enlace](https://github.com/franciscomorande/audiv027-2025-1/tree/main/arq-07-franciscomorande/clase-09).
+Mi equipo de trabajo es <https://github.com/FAU-UChile/audiv027-2025-1/tree/main/arq-05-BenjaminGonzalezFAU> y <https://github.com/FAU-UChile/audiv027-2025-1/tree/main/arq-09-IgnaciaUch>, entregamos en el repositorio en este [enlace](https://github.com/franciscomorande/audiv027-2025-1/tree/main/arq-07-franciscomorande/clase-14).
 
 ## Acerca del proyecto
 
@@ -250,7 +250,7 @@ La primera versión se enfocó en detectar las puntas de los cinco dedos usando 
 
 ![01 dedos 2](https://github.com/user-attachments/assets/41951fd0-e89e-4456-86aa-54bc06ec3aef)
 
-![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
+
 
 Se introdujo la mecánica de detectar un solo dedo a la vez, cambiando cada cierto intervalo de tiempo. Cada 10 segundos, el sistema cambia aleatoriamente a otro dedo garantizando que no se repita el anterior. Esto a partir de otorgar a cada punto clave de cada dedo un valor entre el 1 al 5:
 
@@ -267,9 +267,12 @@ if (elapsed >= changeInterval) {
 
 Se trabajó además la interfaz para una experiencia fluida, una barra de progreso visual que indica el tiempo restante para el cambio. Esta versión permitió guiar al usuario de forma clara sobre qué dedo debía posicionar.
 
+![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
+
 # Etapa 3: Transiciones Suaves
 
-![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
+
+![01 dedos 4](https://github.com/user-attachments/assets/97219d55-8ad7-43ef-b8a5-a534369b835d)
 
 Para evitar cambios bruscos, se introdujo un sistema de fade in y fade out de las imágenes del dedo activo. Esto se implementó interpolando la opacidad (alpha) dependiendo del tiempo transcurrido desde el cambio:
 
@@ -305,8 +308,6 @@ const fingerKeypoints = {
 Esto facilitó escalar y reutilizar el código para las futuras variables a definir. Finalmente se añadieron logs de validación para depurar errores de carga o modelo.
 
 ## Variable Escalado por Profundidad
-
-# Definición inicial  
 
 ![03 tamano](https://github.com/user-attachments/assets/9a5a384f-0a1a-4a72-b4d1-fa85e3cf0bcc)
 
@@ -357,11 +358,12 @@ image(dedoImg, x, y, 80 * escala, 80 * escala);
 ~~~
 
 Como resultado final se observa que el sistema responde correctamente a movimientos de acercamiento y alejamiento del dedo respecto a la cámara. El suavizado evitar saltos bruscos o parpadeos de tamaño y el escalado se detiene en los límites establecidos por “escalaMaxima” y “escalaMinima”. En conclusión, la experiencia visual resulta coherente incluso durante transiciones o cambios de dedo.
+
 ## Variable Visibilidad Reducida
 
 ![04 visibilidad](https://github.com/user-attachments/assets/c1b77b5b-a497-46bf-9413-8d63d24ca01f)
 
-# Definición inicial  
+ 
 La implementación de la variable surge como una estrategia para condicionar la percepción del jugador, limitando de manera parcial el campo visual en el entorno interactivo. Esta restricción no solo añade dificultad, sino que introduce una capa sensorial al comportamiento del jugador, centrando la atención únicamente en el área que rodea al dedo actualmente activo.
 
 El efecto se consigue mediante la superposición de una máscara oscura (con transparencia modificable) sobre todo el lienzo, salvo en una región circular centrada en la posición del dedo. Esta región, suavemente difuminada en sus bordes, simula un haz de luz o “linterna visual”. 
@@ -398,13 +400,16 @@ gradient.addColorStop(0, `rgba(0, 0, 0, 0)`);
 gradient.addColorStop(1, `rgba(0, 0, 0, ${opacidadOscuridad / 255})`);
 ~~~
 
-Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la totalidad de la pantalla. Tras su implementación, se documenta su correcta activación y desactivación mediante “visionReducidaActiva” y un correcto funcionamiento del suavizado y opacidad, evitando cortes abruptos o efectos inconsistentes.## Variable Enemigo que Persigue
+Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la totalidad de la pantalla. Tras su implementación, se documenta su correcta activación y desactivación mediante “visionReducidaActiva” y un correcto funcionamiento del suavizado y opacidad, evitando cortes abruptos o efectos inconsistentes.
 
-# Definición inicial  
+# Variable Enemigo que Persigue
+
+![02 enemigo 2](https://github.com/user-attachments/assets/904b184b-c6b9-49d0-9cee-cd6323c29c3f)
+   
 
 Esta funcionalidad surge como una extensión dinámica del sistema interactivo, con el propósito de introducir un comportamiento externo que reacciona al movimiento del jugador y lo obliga a moverse por la cámara. Se implementó un "enemigo virtual" que persigue constantemente al dedo activo, si logra alcanzarlo, desencadena una acción (restar tiempo de vida) y desaparece, de lo contrario desaparece por agotamiento del tiempo pre-definido.
 
-# Etapa 1: Parametrización de comportamiento  
+## Etapa 1: Parametrización de comportamiento  
 
 Se estructuró la lógica del enemigo a través de variables parametrizadas al comienzo del código para garantizar claridad, personalización y facilidad de prueba.
 
@@ -416,7 +421,7 @@ let enemigoVelocidad = 2.5;       // Velocidad de persecución
 let enemigoDuracion = 5000;       // Tiempo antes de desaparecer (ms)
 ~~~
 
-# Etapa 2: Generación y activación  
+## Etapa 2: Generación y activación  
 
 Si la variable “enemigoActivo” está en true, se llama a una función que posiciona al enemigo en una coordenada aleatoria del canvas y registra su tiempo de inicio.
 
@@ -429,7 +434,7 @@ function generarEnemigo() {
 }
 ~~~
 
-# Etapa 3: Movimiento hacia el jugador  
+## Etapa 3: Movimiento hacia el jugador  
 
 ![02 enemigo 1](https://github.com/user-attachments/assets/77ecb34a-7cb7-4461-bd10-0e8e92ec9dfb)
 
@@ -443,7 +448,7 @@ enemigo.x += cos(angle) * enemigoVelocidad;
 enemigo.y += sin(angle) * enemigoVelocidad;
 ~~~
 
-# Etapa 4: Visualización y colisión  
+## Etapa 4: Visualización y colisión  
 
 ![02 enemigo 2](https://github.com/user-attachments/assets/904b184b-c6b9-49d0-9cee-cd6323c29c3f)
 
