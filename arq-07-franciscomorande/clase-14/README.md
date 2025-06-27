@@ -306,8 +306,6 @@ Esto facilitó escalar y reutilizar el código para las futuras variables a defi
 
 ## Variable Escalado por Profundidad
 
-# Definición inicial  
-
 ![03 tamano](https://github.com/user-attachments/assets/9a5a384f-0a1a-4a72-b4d1-fa85e3cf0bcc)
 
 Esta extensión del sistema de detección de dedos tuvo como objetivo dinamizar la percepción espacial del usuario al visualizar el tamaño del dedo activo más grande o más pequeño dependiendo de su distancia a la cámara. En lugar de mantener un tamaño estático para la imagen del dedo, se incorporó una lógica de escalado dinámico basado en profundidad relativa, utilizando los puntos de la muñeca (`wrist`) y del índice (`index_finger_tip`) como referencia. Se conservó la base de detección secuencial y se añadió una capa adicional de cálculo que transforma visualmente la interfaz en función del acercamiento del dedo.
@@ -357,11 +355,12 @@ image(dedoImg, x, y, 80 * escala, 80 * escala);
 ~~~
 
 Como resultado final se observa que el sistema responde correctamente a movimientos de acercamiento y alejamiento del dedo respecto a la cámara. El suavizado evitar saltos bruscos o parpadeos de tamaño y el escalado se detiene en los límites establecidos por “escalaMaxima” y “escalaMinima”. En conclusión, la experiencia visual resulta coherente incluso durante transiciones o cambios de dedo.
+
 ## Variable Visibilidad Reducida
 
 ![04 visibilidad](https://github.com/user-attachments/assets/c1b77b5b-a497-46bf-9413-8d63d24ca01f)
 
-# Definición inicial  
+ 
 La implementación de la variable surge como una estrategia para condicionar la percepción del jugador, limitando de manera parcial el campo visual en el entorno interactivo. Esta restricción no solo añade dificultad, sino que introduce una capa sensorial al comportamiento del jugador, centrando la atención únicamente en el área que rodea al dedo actualmente activo.
 
 El efecto se consigue mediante la superposición de una máscara oscura (con transparencia modificable) sobre todo el lienzo, salvo en una región circular centrada en la posición del dedo. Esta región, suavemente difuminada en sus bordes, simula un haz de luz o “linterna visual”. 
@@ -403,8 +402,7 @@ Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la to
 # Variable Enemigo que Persigue
 
 ![02 enemigo 2](https://github.com/user-attachments/assets/904b184b-c6b9-49d0-9cee-cd6323c29c3f)
-
-## Definición inicial  
+   
 
 Esta funcionalidad surge como una extensión dinámica del sistema interactivo, con el propósito de introducir un comportamiento externo que reacciona al movimiento del jugador y lo obliga a moverse por la cámara. Se implementó un "enemigo virtual" que persigue constantemente al dedo activo, si logra alcanzarlo, desencadena una acción (restar tiempo de vida) y desaparece, de lo contrario desaparece por agotamiento del tiempo pre-definido.
 
