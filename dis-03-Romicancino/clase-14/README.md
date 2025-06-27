@@ -8,7 +8,7 @@ integrantes:
 * Josefa Gutierrez <https://github.com/joo08>
 * Romina Cancino <https://github.com/Romicancino>
 
-## acerca del proyecto
+## Acerca del proyecto
 
 El proyecto es un filtro interactivo, el cual usa inteligencia artificial para detectar movimientos, como en este caso lo es el parpadeo, este detecta el rostro para así poder decorar con distintos accesorios con temática “Barbie” y además tiene incluido un botón que puedes usar para guardar una foto, este botón toma una captura de pantalla del Canvas al momento de presionarlo y lo guarda en el computador como descarga. El filtro está hecho con el editor web p5.js y también utiliza ayuda del modelo FaceMesh de la biblioteca ml5.js, el cual detecta puntos clave en el rostro.
 
@@ -50,7 +50,7 @@ let currentColor;
 let baseColor;
 let hoverColor;
 
-let marcoGIF; // 🎀 marco animado
+let marcoGIF; // marco animado
 
 function preload() {
   accesorios.push(loadImage('gorromujer.png'));
@@ -59,9 +59,8 @@ function preload() {
   accesorios.push(loadImage('gafashombre.png'));
   accesorios.push(loadImage('brillos.png'));
 
-  marcoGIF = createImg('marcoGIF.gif');
+  marcoGIF = createImg('marcoGIF.gif', '');
 }
-
 
 function setup() {
   createCanvas(640, 480);
@@ -74,16 +73,17 @@ function setup() {
     predictions = results;
   });
 
-  baseColor = color(255); // Blanco
-  hoverColor = color(255, 100, 100); // Rojo claro
+  baseColor = color(255);
+  hoverColor = color(255, 100, 100);
   currentColor = baseColor;
 
   createP('Estado del modelo:').id('status-label');
   createP('Cargando...').id('status');
-    // Mostrar el GIF animado como overlay encima del canvas
-  marcoGIF.position(0, 0);                      // alineado al canvas
-  marcoGIF.size(width, height);                // mismo tamaño del canvas
-  marcoGIF.style('pointer-events', 'none');    // que no bloquee clics
+
+  // Colocar el GIF animado fuera del canvas
+  marcoGIF.position(0, 0);
+  marcoGIF.size(width, height);
+  marcoGIF.style('pointer-events', 'none');
 }
 
 function modelReady() {
@@ -96,9 +96,6 @@ function draw() {
   detectarParpadeo();
   dibujarAccesorio();
   dibujarBoton();
-
-  // Dibujar marco animado al final, encima de todo
-  image(marcoGIF, 0, 0, width, height);
 
   if (blinkCooldown > 0) blinkCooldown--;
 }
@@ -131,6 +128,8 @@ function detectarParpadeo() {
     }
   }
 }
+
+// Para controlar el movimiento de los ojos
 
 function calculateEAR(p1, p2, p3, p4, p5, p6) {
   let A = dist(p2[0], p2[1], p6[0], p6[1]);
@@ -192,7 +191,11 @@ function mousePressed() {
 }
 
 function guardarImagen() {
-  saveCanvas('captura', 'png');
+  marcoGIF.hide(); // Lo oculta momentáneamente
+  setTimeout(() => {
+    saveCanvas('captura', 'png');
+    marcoGIF.show(); // Lo vuelve a mostrar después
+  }, 100);
 }
 
 ```
@@ -267,7 +270,11 @@ lo hicimos en el editor de p5.js
 Código de Prueba del botón dentro del canvas y guardado de imágen 
 https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
 
-https://github.com/user-attachments/assets/e1a056be-8911-4e14-a0a7-80cc2e08bcae
+
+
+https://github.com/user-attachments/assets/af6c51a6-563a-4602-9737-de6ea88f24e0
+
+
 
 
 creación del gif mediante vectores en Ilustrator y animado en Photoshop
