@@ -2,7 +2,7 @@
 
 viernes 27 de Junio 2025
 
-## JUEGO DE LOS CHURU
+## SÚPER DORITO MISIÓN: CHURU
 
 integrantes:
 
@@ -16,7 +16,7 @@ mi equipo de trabajo es <https://github.com/ValentinaAbarcia>, <LINK [https://gi
 
 ## acerca del proyecto
 
-El proyecto busca lograr un juego que pueda jugarse usando los gestos de las manos, utilizando la cámara sin tener que tocar la pantalla.
+El proyecto busca lograr un juego que pueda jugarse usando los movimientos de las manos, utilizando la cámara sin tener que tocar la pantalla.
 
 Se desarrolló el juego utilizando a Dorito, el gato de FAU, por ser un miembro muy querido e icónico de la comunidad estudiantil.
 
@@ -24,6 +24,7 @@ Se desarrolló el juego utilizando a Dorito, el gato de FAU, por ser un miembro 
 
 el código original que citamos es
 
+1. Juego Original, juego dónde se debe atrapar un copo de nieve.
 ```javascript
 /*  DXB211 A2 Brief: Creative coding project, mini game
 
@@ -223,6 +224,7 @@ function reset(){
 }
 ```
 
+2. Modelo Hand Pose de ML5
 ```javascript
 /*
  * 👋 Hello! This is an ml5.js example made and shared with ❤️.
@@ -274,6 +276,7 @@ function gotHands(results) {
 }
 ```
 
+Introducción del Juego, sacada de un tutorial de Youtube
 ```javascript
 let config = {
     x : 50,
@@ -387,32 +390,85 @@ function setupDecor()
 
 ## enlace del proyecto
 
-Lo hicimos en editor de p5.js: 
+Lo hicimos en editor de p5.js <https://editor.p5js.org/annais.bustamante/full/NRCjxHU75>
 
 ## documentación multimedia / audiovisual del proyecto funcionando
 
 Introducción al Juego
-Código inicial para la introducción del juego, en esta etapa solo habían círculos en blanco.
-Se reemplazaron los círculos por Churus
-Se intentó cambiar el fondo.
+1. Código inicial para la introducción del juego, en esta etapa solo habían círculos en blanco.
+![a1](https://github.com/user-attachments/assets/ec29c0a2-4863-459a-87e1-5e47de92f700)
+
+3. Se reemplazaron los círculos por Churus.
+![a2](https://github.com/user-attachments/assets/742f322b-9e06-4361-a867-47ca1b77e20f)
+
+5. Se intentó cambiar el fondo.
+![a3](https://github.com/user-attachments/assets/8d3d490a-5096-4430-bf0d-3addd092eddf)
+
+7. Se logró cambiar el fondo, probándose diferentes opciones de fondo.
+![a6](https://github.com/user-attachments/assets/877e4915-f4c4-4949-96e1-7a60c0d81b35)
+![a5](https://github.com/user-attachments/assets/72bb531e-29ec-4e36-9dd0-82298bae4849)
+![a4](https://github.com/user-attachments/assets/72cb58a0-3eba-476c-a6a5-d2f61aca77c3)
+
 
 Juego
+1. Combinación entre el código de Hand Pose y el Juego de Olaf.
+![b1](https://github.com/user-attachments/assets/e3f98e30-c9f5-4edc-8be1-f3f3839252aa)
+
+3. Introducción y cierre del juego con Hand Pose ya aplicado.
+![b2](https://github.com/user-attachments/assets/9e4f3379-886c-4da6-82e3-3ac1cc1e21d4)
+![b3](https://github.com/user-attachments/assets/a4f4df43-690d-444c-ae5e-0e4eca72cdab)
+
+5. Cambios de apariencia en el juego, esta vez se incorpora a Dorito y la FAU de fondo.
+![c2](https://github.com/user-attachments/assets/28755286-bf3a-4a7a-8331-c42e87109df4)
+![c1](https://github.com/user-attachments/assets/52827cf5-e571-4cca-8f23-be554d609ccd)
+
+7. Segundo cambio de apariencia, esta es la estética final.
+![c4](https://github.com/user-attachments/assets/1f28f3f4-b784-49cf-8644-d5a3a31d0e6c)
+![c3](https://github.com/user-attachments/assets/e9382adb-cd13-4182-9cbf-b0d1d42c0be5)
+
+9. Juego en Funcionamiento.
+https://drive.google.com/file/d/1q_ukgBaikke4XZKunoK-XCXBVan144k-/view
+
+Fusión de la Introducción y el Juego
+1. Código de la animación del incio del juego.
+![d1](https://github.com/user-attachments/assets/e189c05c-7b9f-4819-a2af-8f4d82053c72)
+
+3. Código del juego mezclado con Hand Pose.
+![d2](https://github.com/user-attachments/assets/f074f8e9-f768-4346-90fa-898bcc61889d)
+
+5. Transición entre el código de la introducción y el código del juego.
+![d3](https://github.com/user-attachments/assets/9129a9a3-de7f-4b01-a47c-42e6659cf313)
+
+6. Ejemplo del juego funcionando con la introducción.
+https://drive.google.com/file/d/16mnzvoNd2vD48e18xnRg6AhEp3O6CWTy/view
+
+7. Se agregó en el código musica de fondo, un efecto de sonido para cuando Dorito se come los churus y sonido para cuando se pierde el juego
+![d4](https://github.com/user-attachments/assets/8a0804a7-85de-4d82-a7be-80686aa4022e)
+
+8. Video del juego funcionando con la música.
+https://drive.google.com/file/d/1KeeddPRjgaHC9BJNsTTVfQW_t40SRXvu/view
 
 
 
 ## bibliografía
 
-Utilizamos el este tutorial: https://www.youtube.com/watch?v=CIBKUC4TR18
+Utilizamos este tutorial: <https://www.youtube.com/watch?v=CIBKUC4TR18>
 
-tomamos el código base de https://editor.p5js.org/Cardenb/sketches/PatqtOUlk y de https://editor.p5js.org/ml5/sketches/QGH3dwJ1A
+tomamos el código base de <https://editor.p5js.org/Cardenb/sketches/PatqtOUlk> y de <https://editor.p5js.org/ml5/sketches/QGH3dwJ1A>
 
-Las imágenes utilizadas son de elaboración propia, 
+Las ideas las sacamos de los siguientes videos: <https://www.youtube.com/watch?v=vfNHdVbE-l4>, <https://www.youtube.com/watch?v=K7b5MEhPCuo>, <https://www.youtube.com/watch?v=72pAzuD8tqE>, <https://github.com/AVAniketh0905/HandPose_Scrolling?utm_source=chatgpt.com>
+
+Las imágenes utilizadas son de internet.
 
 
 ## conclusiones
 
-1. Entre el lenguaje que utilizaba el tutorial y el lenguaje de pj5 había ligeras diferencias que cambiaban completamente la programación
-2.El Hand Pose tiene programado un efecto espejo que afecta dependiendo del tipo de cámara que se utilice
+1. Entre el lenguaje que utilizaba el tutorial y el lenguaje de pj5 había ligeras diferencias que cambiaban completamente la programación.
+2. El Hand Pose tiene programado un efecto espejo que afecta dependiendo del tipo de cámara que se utilice.
+3. Para que el código funcione correctamente es necesario mantener un orden claro en los nombres de los archivos, imágenes, tipografías, etc.
+4. Para lograr que Dorito se mueva la mano se tiene que enfocar correctamente y sin ruido de fondo.
+5. Se logró el objetivo de lograr un juego en el que para interactuar no es necesario tocar la pantalla.
 
+## dimensión etica
 
-agregar dimensión ética.
+Comprendiendo que se trata de un juego que manipula datos sensibles al tener acceso a la cámara de un dispositivo resulta de vital importancia la protección de éstos para que el usuario del juego no vea comprometida su privacidad o su imagen. También es importante recalcar que no se lleve a cabo ningún tipo de almacenamiento de lo que sea registrado por la cámara o que dichos registros no sean usados con ningún fin, a menos que esto sea declarado con anterioridad de forma clara y directa (véase para ayudar a entrenar al modelo incorporado en el juego o cualquier otro).

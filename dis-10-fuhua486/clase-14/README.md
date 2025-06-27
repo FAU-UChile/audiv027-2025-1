@@ -28,11 +28,11 @@ Las herramientas que utilizamos son: **ml5.js（Modelo NeuralNetwork Train and S
 
 ## Procesos
 
-Nuestro proyecto se desarrolla a partir de entrenamiento de modelo, en este caso es el modelo **NeuralNetwork Train and Save** de ml5, que sirve para entrena y guardar datos para usarlo más adelante.
+Nuestro proyecto se desarrolla a partir de entrenamiento de modelo, en este caso es el modelo **NeuralNetwork Train and Save** de ml5, que sirve para entrena y guardar datos para ser usados más adelante.
 
 #### Código base
 
-Este código sirve para entrenar y detectar el gesto de cachipún: Piedra, Papel y Tijera
+Este código sirve para entrenar y detectar el gesto de cachipún: Piedra, papel y tijera
 
 ```javascript
 let classifier;
@@ -216,7 +216,7 @@ function finishedTraining() {
 
 ```
 
-**El primer paso que hicimos fue cambiar las variables（de piedra, papel y tijera a Letra A, Letra B y Letra C)**
+**Nuestro primer paso fue cambiar las variables（de piedra, papel y tijera a Letra A, Letra B y Letra C)**
 
 ```Javascript
 
@@ -596,7 +596,7 @@ function finishedTraining() {
 **Datos guardados de entrenamiento**
 ![image](https://github.com/user-attachments/assets/ba2309a3-e926-489a-a285-ef9490e76a5d)
 
-**Nos entregaron 3 archivos de modelo para usarlo en otro código**
+**Nos entrega 3 archivos de modelo para usar en otro código**
 
 ![image](https://github.com/user-attachments/assets/a4c4b998-24ae-481b-a504-3cdcbeaa0280)
 
@@ -773,8 +773,8 @@ Fuentes de información sobre Lengua de Señas Chilena usada en nuestro proyecto
 
 Comparado con el modelo de imagen de Teachable Machine utilizado en el proyecto TeachSeñas, el modelo de HandPose Skeletal Connections y NeuralNetwork Train and Save que hemos utilizado esta vez tiene una detección mucho más precisa. Ya no se ve afectado por factores como el color, el tamaño o el fondo, sino que detecta con precisión la mano.
 
-Este proyecto solo seleccionó cinco letras del lenguaje de señas (A, B, C, D, E) para la prueba. En el futuro, según el desarrollo del proyecto y las necesidades, se pueden agregar más letras (solamente necesita copiar y modificar parte del código según los requisitos de la letra).
+Este proyecto solo seleccionó cinco letras del lenguaje de señas (A, B, C, D, E) para la prueba. En el futuro, según el desarrollo del proyecto y las necesidades, se pueden agregar más letras (solamente es necesario copiar y modificar parte del código según los requisitos de la letra).
 
-Al principio, el proyecto también tenía un plan para mostrar las letras detectadas en un cuadro de texto y formar gradualmente una oración, pero debido a dificultades técnicas y limitaciones de tiempo, finalmente no se pudo implementar.Pero basándonos en este proyecto, pudimos comprender mejor qué partes del código pueden modificarse según nuestras necesidades, y empezar a ver la programación como una herramienta conveniente más que una lenguaje compleja.
+Al principio, el proyecto también tenía un plan para mostrar las letras detectadas en un cuadro de texto y formar gradualmente una oración, pero debido a las dificultades técnicas y limitaciones de tiempo, finalmente pudimos implementar esta característica. Pero gracias a este proyecto, pudimos comprender mejor qué partes del código pueden modificarse según nuestras necesidades, y empezar a ver la programación como una herramienta conveniente más que una lenguaje complejo.
 
 Muchas gracias!!!
