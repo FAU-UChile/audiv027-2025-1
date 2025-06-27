@@ -2,8 +2,6 @@
 viernes 27 junio 2025
 
 ## BARBIE WORLD 2.0
-mi equipo de trabajo es <<https://github.com/joo08>> y entregamos en el repositorio en este enlace <[https://github.com/ETC](https://github.com/Romicancino/audiv027-2025-1/edit/main/dis-03-Romicancino/clase-14/README.md)>.
-
 integrantes:
 * Josefa Gutierrez <https://github.com/joo08>
 * Romina Cancino <https://github.com/Romicancino>
@@ -267,9 +265,6 @@ lo hicimos en el editor de p5.js
 
 ## documentación multimedia / audiovisual del proyecto funcionando
 
-Código de Prueba del botón dentro del canvas y guardado de imágen 
-https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
-
 
 
 https://github.com/user-attachments/assets/af6c51a6-563a-4602-9737-de6ea88f24e0
@@ -294,10 +289,8 @@ En la segunda versión del trabajo nos enfocamos en como podíamos guardar la im
 
 Con estos elementos resueltos solo nos quedaba ver como podriamos realizar que el botón de guardado de imágen esté dentro del canvas y no afuera, como se suele encontrar de forma "pre-definida".
 
-para conseguir que el botón de guardado esté fuera del canvas necesitabamos
-
-(explicar)
-
+Código de Prueba del botón dentro del canvas y guardado de imágen 
+https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
 
 
 Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código.
