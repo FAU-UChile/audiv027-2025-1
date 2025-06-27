@@ -267,11 +267,12 @@ if (elapsed >= changeInterval) {
 
 Se trabajó además la interfaz para una experiencia fluida, una barra de progreso visual que indica el tiempo restante para el cambio. Esta versión permitió guiar al usuario de forma clara sobre qué dedo debía posicionar.
 
-
+![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
 
 # Etapa 3: Transiciones Suaves
 
-![01 dedo 3](https://github.com/user-attachments/assets/24e20c6e-ae17-4be4-a4fa-1fba894fa58e)
+
+![01 dedos 4](https://github.com/user-attachments/assets/97219d55-8ad7-43ef-b8a5-a534369b835d)
 
 Para evitar cambios bruscos, se introdujo un sistema de fade in y fade out de las imágenes del dedo activo. Esto se implementó interpolando la opacidad (alpha) dependiendo del tiempo transcurrido desde el cambio:
 
