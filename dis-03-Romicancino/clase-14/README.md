@@ -28,7 +28,7 @@ FaceMesh (ml5.js): detecta puntos clave del rostro y permite posicionar los acce
 
 como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
 
-## código del proyecto
+## código del proyecto 2
 
 ```javascript
 let video;
@@ -264,9 +264,6 @@ lo hicimos en el editor de p5.js
 
 ## documentación multimedia / audiovisual del proyecto funcionando
 
-Código de Prueba del botón dentro del canvas y guardado de imágen 
-https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
-
 https://github.com/user-attachments/assets/e1a056be-8911-4e14-a0a7-80cc2e08bcae
 
 
@@ -275,8 +272,6 @@ creación del gif mediante vectores en Ilustrator y animado en Photoshop
 comparativa de los protectos en uso : 
 Proyecto 1 en uso ![image](https://github.com/user-attachments/assets/62543841-8345-4767-971c-fe75a2e86cd3)
 Proyecto 2 en uso ![image](https://github.com/user-attachments/assets/c7361bb3-12f4-47d0-851e-8adfa5f7dd9e)
-
-
 
 En la primera versión del código utilizamos el comando PoseNet, lo cual hacía que el filtro en lugar de detectar el parpadeo se cambiara con cualquier movimiento de la cara, ya para la versión final decidimos utilizar FaceMesh de ml5.js en lugar de PoseNet y esto nos ayudó a mejorar la precisión, sin embargo, aún no detectaba tal cual el pestañeo, por lo tanto agregamos el comando EAR (eye aspect ratio) que nos ayuda a integrar puntos referenciales de los ojos y utilizamos el comando earTreshold para ajustar la sensibilidad. 
 
@@ -287,10 +282,8 @@ En la segunda versión del trabajo nos enfocamos en como podíamos guardar la im
 
 Con estos elementos resueltos solo nos quedaba ver como podriamos realizar que el botón de guardado de imágen esté dentro del canvas y no afuera, como se suele encontrar de forma "pre-definida".
 
-para conseguir que el botón de guardado esté fuera del canvas necesitabamos
-
-(explicar)
-
+Código de Prueba del botón dentro del canvas y guardado de imágen 
+https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
 
 
 Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código.
@@ -300,8 +293,6 @@ Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código
 nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
 
 tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
-
-(link del botón) 
 
 usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
 
@@ -318,7 +309,8 @@ Para nuestro proyecto 2 existen varios posibles usos, analizando mejor nuestro e
 
 • Márketing : si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
 
-• Educación : 
+• Educación : se podrían cambiar los elementos para desarrollar herramientas educdtivas, por ejemplo  aprender las partes de la cara.
+
 
 
 
