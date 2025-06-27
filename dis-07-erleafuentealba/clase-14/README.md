@@ -390,7 +390,310 @@ function setupDecor()
 
 ## enlace del proyecto
 
-Lo hicimos en editor de p5.js <https://editor.p5js.org/annais.bustamante/full/NRCjxHU75>
+Lo hicimos en editor de p5.js <https://editor.p5js.org/annais.bustamante/sketches/eAogya2kg>
+
+Código del proyecto
+```javascript
+let config = { // config rectángulo animado: pantalla inicio
+  w: 700,
+  h: 500,
+  noBalls: 60,
+  offset: 0,
+  speed: 1.5,
+  margin: 50 
+};
+
+let fondoinicio, fondojuego; // imágenes de fondo
+let churu, dorito; // imágenes de los sujetos
+let doritoX, doritoY; // coordenadas de dorito para que se mueva
+
+let video, handpose, predictions = [];
+
+let screen = 0;  // 0 = inicio, 1 = juego, 2 = game over
+let y = -20, x = 200, speed = 2, score = 0;
+let churuItems = [];
+
+let titleFont;  // fuente para el título
+let infoFont;   // fuente para el texto inferior
+
+let music; // música para todo el juego
+let catchingsound; // sonido para cuando dorito capture un churu
+let gameoversound; // sonido para el gameover
+
+function preload() { // cargar imágenes, sonidos y fuentes
+  fondoinicio = loadImage("datajuego/fondo3.jpg"); 
+  fondojuego = loadImage("datajuego/fondojuego.jpg");
+  churu = loadImage("datajuego/churu.png");
+  dorito = loadImage("datajuego/DoritoMovil.png");
+  
+  titleFont = loadFont("datajuego/VT323-Regular.ttf");
+  infoFont = loadFont("datajuego/Roboto-VariableFont_wdth,wght.ttf");
+
+  music = loadSound("datajuego/gameminecraft.mp3");
+  catchingsound = loadSound("datajuego/minecraft-eating-sound.mp3");
+  gameoversound = loadSound("datajuego/Minecraft-death-sound.mp3")
+}
+
+function setup() { 
+  createCanvas(config.w + config.margin * 2, config.h + config.margin * 2);
+  imageMode(CENTER);
+  textAlign(CENTER, CENTER);
+  textFont(titleFont); 
+
+  doritoX = width / 2;
+  doritoY = height - 70;
+
+  video = createCapture({ // Iniciación handpose
+    video: {
+      width: 640,
+      height: 480,
+      facingMode: "user"
+    },
+    audio: false
+  });
+  video.size(width, height);
+  video.hide();
+
+  handpose = ml5.handpose(video, () => {
+    console.log("✅ Handpose cargado");
+  });
+
+  handpose.on("predict", (results) => {
+    predictions = results.length > 0 ? [results[0]] : [];
+  });
+
+  agregarChuru(10);
+}
+
+function draw() {
+  if (screen === 0) {
+    drawStartScreen();
+  } else if (screen === 1) {
+    gameOn();
+  } else if (screen === 2) {
+    endScreen();
+  }
+}
+
+// ------ Pantalla de inicio ------
+function drawStartScreen() {
+  imageMode(CORNER);
+  image(fondoinicio, 0, 0, width, height);
+
+  updateFrame();
+  displayFrame();
+
+  fill(255);
+  textFont(titleFont);
+  textSize(54);
+  let titleX = config.margin + config.w / 2 - 150;
+  let titleY = height / 3;
+  text("Super Dorito", titleX - 12, titleY - 40);
+  text("Misión: Churu", titleX, titleY + 15);
+
+  let blinkSpeed = 90;
+  if (frameCount % blinkSpeed < blinkSpeed / 2) {
+    fill(255);
+    textFont(infoFont);
+    textSize(20);
+    text("Presiona 'D' o toca la pantalla para comenzar", titleX + 60, height - 140);
+  }
+}
+
+// ------ Pantalla del juego: funcionamiento ------
+function gameOn() {
+  imageMode(CENTER);
+  image(fondojuego, width / 2, height / 2, width, height);
+
+  textSize(22);
+  fill(255);
+  textFont(infoFont);
+  text("Puntaje: " + score, 100, 40);
+
+  if (predictions.length > 0 && predictions[0].landmarks?.[0]) {
+    let palm = predictions[0].landmarks[0];
+    let targetX = constrain(palm[0], 50, width - 50);
+    let delta = targetX - doritoX;
+    let maxSpeed = 12;
+    delta = constrain(delta, -maxSpeed, maxSpeed);
+    doritoX += delta * 0.55;
+  }
+
+  image(dorito, doritoX, doritoY, 120, 160);
+  image(churu, x, y, 70, 60);
+  y += speed;
+
+  if (y > height) {
+    music.stop();
+    gameoversound.play();
+    screen = 2;
+  }
+
+  if (y > height - 90 && x > doritoX - 45 && x < doritoX + 45) {
+    y = -20;
+    speed += 0.5;
+    score += 1;
+    catchingsound.play();
+  }
+
+  if (y === -20) {
+    pickRandom();
+  }
+
+  // cámara en la esquina superior derecha
+  let camWidth = 200;
+  let camHeight = 120;
+  imageMode(CORNER);
+  push();
+  translate(width - camWidth - 10 + camWidth, 10); 
+  scale(-1, 1); // modo espejo
+  image(video, 0, 0, camWidth, camHeight);
+  pop();
+}
+
+// ------ Pantalla final: game over ------
+function endScreen() {
+  background(0);
+  image(fondojuego, width / 2, height / 2, width, height);
+
+  textAlign(CENTER);
+  fill(255);
+  textFont(titleFont);
+  textSize(60);
+  text("Dorito se fue T-T", width / 2, height / 2 - 20);
+  textFont(infoFont);
+  textSize(20);
+  text("Puntaje: " + score, width / 2, height / 2 + 60);
+  text("Haz clic o toca para volver a jugar", width / 2, height / 2 + 100);
+
+  for (let churu of churuItems) {
+    churu.show();
+    churu.update();
+  }
+
+  agregarChuru(1);
+}
+
+// Funcionamiento pantalla animada
+function updateFrame() { 
+  config.offset += config.speed;
+}
+
+function displayFrame() { 
+  let perimeter = (config.w + config.h) * 2;
+  let space = perimeter / config.noBalls;
+
+  noFill();
+  noStroke();
+  imageMode(CENTER);
+  for (let i = 0; i < config.noBalls; i++) {
+    let ballX = config.offset + i * space;
+    let o = linearToRect(ballX, config.margin, config.margin, config.w, config.h);
+    image(churu, o.x, o.y, 50, 50);
+  }
+}
+
+function linearToRect(linearX, rectX, rectY, rectW, rectH) {
+  let perimeter = (rectW + rectH) * 2;
+  linearX = linearX % perimeter;
+
+  if (linearX <= rectW)
+    return { x: rectX + linearX, y: rectY };
+
+  if (linearX <= rectW + rectH)
+    return { x: rectX + rectW, y: rectY + linearX - rectW };
+
+  if (linearX <= 2 * rectW + rectH)
+    return {
+      x: rectX + rectW - (linearX - rectW - rectH),
+      y: rectY + rectH
+    };
+
+  return {
+    x: rectX,
+    y: rectY + rectH - (linearX - 2 * rectW - rectH)
+  };
+}
+
+function pickRandom() {
+  x = random(50, width - 50);
+}
+
+// Iniciar el juego con click/tap y volver a empezar
+function keyPressed() { 
+  if (screen === 0 && (key === 'd' || key === 'D')) {
+    iniciarJuego();
+  }
+}
+
+function mousePressed() { 
+  if (screen === 0) {
+    iniciarJuego();
+  } else if (screen === 2) {
+    screen = 0;
+    reset();
+  }
+}
+
+function touchStarted() {
+  if (screen === 0) {
+    iniciarJuego();
+  } else if (screen === 2) {
+    screen = 0;
+    reset();
+  }
+}
+
+function iniciarJuego() {
+  screen = 1;
+  if (!music.isPlaying()) {
+    music.loop();
+  }
+}
+
+function reset() {
+  score = 0;
+  speed = 2;
+  y = -20;
+  doritoX = width / 2;
+  predictions = [];
+  churuItems = [];
+}
+
+// Funcionamiento lluvia de churu final
+function agregarChuru(num) { 
+  for (let count = 0; count < num; count++) {
+    let item = new Churu(random(width), -10 + random(20), random(0.5, 3));
+    churuItems.push(item);
+  }
+}
+
+class Churu {
+  constructor(x, y, speed) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.falling = true;
+  }
+
+  update() {
+    if (this.falling) {
+      this.y += this.speed;
+      if (this.y > height) {
+        this.falling = false;
+      }
+    }
+  }
+
+  show() {
+    if (this.falling) {
+      imageMode(CENTER);
+      image(churu, this.x, this.y, 20, 20);
+    }
+  }
+}
+
+```
 
 ## documentación multimedia / audiovisual del proyecto funcionando
 
