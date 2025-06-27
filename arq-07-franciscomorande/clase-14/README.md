@@ -398,15 +398,17 @@ gradient.addColorStop(0, `rgba(0, 0, 0, 0)`);
 gradient.addColorStop(1, `rgba(0, 0, 0, ${opacidadOscuridad / 255})`);
 ~~~
 
-Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la totalidad de la pantalla. Tras su implementación, se documenta su correcta activación y desactivación mediante “visionReducidaActiva” y un correcto funcionamiento del suavizado y opacidad, evitando cortes abruptos o efectos inconsistentes.## Variable Enemigo que Persigue
+Este gradiente se aplica sobre el lienzo mediante un rectángulo que cubre la totalidad de la pantalla. Tras su implementación, se documenta su correcta activación y desactivación mediante “visionReducidaActiva” y un correcto funcionamiento del suavizado y opacidad, evitando cortes abruptos o efectos inconsistentes.
 
-## Variable enemigo que persigue
+# Variable Enemigo que Persigue
 
-# Definición inicial  
+![02 enemigo 2](https://github.com/user-attachments/assets/904b184b-c6b9-49d0-9cee-cd6323c29c3f)
+
+## Definición inicial  
 
 Esta funcionalidad surge como una extensión dinámica del sistema interactivo, con el propósito de introducir un comportamiento externo que reacciona al movimiento del jugador y lo obliga a moverse por la cámara. Se implementó un "enemigo virtual" que persigue constantemente al dedo activo, si logra alcanzarlo, desencadena una acción (restar tiempo de vida) y desaparece, de lo contrario desaparece por agotamiento del tiempo pre-definido.
 
-# Etapa 1: Parametrización de comportamiento  
+## Etapa 1: Parametrización de comportamiento  
 
 Se estructuró la lógica del enemigo a través de variables parametrizadas al comienzo del código para garantizar claridad, personalización y facilidad de prueba.
 
@@ -418,7 +420,7 @@ let enemigoVelocidad = 2.5;       // Velocidad de persecución
 let enemigoDuracion = 5000;       // Tiempo antes de desaparecer (ms)
 ~~~
 
-# Etapa 2: Generación y activación  
+## Etapa 2: Generación y activación  
 
 Si la variable “enemigoActivo” está en true, se llama a una función que posiciona al enemigo en una coordenada aleatoria del canvas y registra su tiempo de inicio.
 
@@ -431,7 +433,7 @@ function generarEnemigo() {
 }
 ~~~
 
-# Etapa 3: Movimiento hacia el jugador  
+## Etapa 3: Movimiento hacia el jugador  
 
 ![02 enemigo 1](https://github.com/user-attachments/assets/77ecb34a-7cb7-4461-bd10-0e8e92ec9dfb)
 
@@ -445,7 +447,7 @@ enemigo.x += cos(angle) * enemigoVelocidad;
 enemigo.y += sin(angle) * enemigoVelocidad;
 ~~~
 
-# Etapa 4: Visualización y colisión  
+## Etapa 4: Visualización y colisión  
 
 ![02 enemigo 2](https://github.com/user-attachments/assets/904b184b-c6b9-49d0-9cee-cd6323c29c3f)
 
