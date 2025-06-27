@@ -116,6 +116,10 @@ Pero que no sea de Pablo Neruda jaja
       }
     }
 
+### Primera Vista
+![image](https://github.com/user-attachments/assets/e46cf3bc-b75a-43f8-9e62-c3a6c32099f1)
+
+
    #### ACOTACIONES
 
    - en este codigo ya se reproducen los datos de interes y se solucionaron posibles problemas de proxy
