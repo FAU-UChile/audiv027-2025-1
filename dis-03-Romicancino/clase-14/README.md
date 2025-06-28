@@ -2,13 +2,11 @@
 viernes 27 junio 2025
 
 ## BARBIE WORLD 2.0
-mi equipo de trabajo es <<https://github.com/joo08>> y entregamos en el repositorio en este enlace <[https://github.com/ETC](https://github.com/Romicancino/audiv027-2025-1/edit/main/dis-03-Romicancino/clase-14/README.md)>.
-
 integrantes:
 * Josefa Gutierrez <https://github.com/joo08>
 * Romina Cancino <https://github.com/Romicancino>
 
-## acerca del proyecto
+## Acerca del proyecto
 
 El proyecto es un filtro interactivo, el cual usa inteligencia artificial para detectar movimientos, como en este caso lo es el parpadeo, este detecta el rostro para así poder decorar con distintos accesorios con temática “Barbie” y además tiene incluido un botón que puedes usar para guardar una foto, este botón toma una captura de pantalla del Canvas al momento de presionarlo y lo guarda en el computador como descarga. El filtro está hecho con el editor web p5.js y también utiliza ayuda del modelo FaceMesh de la biblioteca ml5.js, el cual detecta puntos clave en el rostro.
 
@@ -21,14 +19,14 @@ p5.js es una biblioteca de JavaScript diseñada para hacer accesible la programa
 ml5.js es una biblioteca de aprendizaje automático de alto nivel construida sobre TensorFlow.js. Proporciona modelos preentrenados listos para usar en aplicaciones creativas e interactivas, como clasificación de imágenes, generación de texto y detección de poses.
 FaceMesh: es un modelo que detecta más de 400 puntos clave en el rostro humano en tiempo real. Esto permite identificar partes específicas del rostro como ojos, boca, nariz y contorno facial.
 
-para resumir nuestro trabajo, ocupamos las herramientas en las siguientes cosas: 
+Para resumir nuestro trabajo, ocupamos las herramientas en las siguientes cosas: 
 p5.js: renderiza en tiempo real los gráficos, accesorios, marco y botón del filtro.
 
 FaceMesh (ml5.js): detecta puntos clave del rostro y permite posicionar los accesorios con precisión; además, identifica el parpadeo para activar el cambio de accesorios.
 
-como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
+Como Valor añadido, gracias a estas herramientas, nuestro proyecto logra una experiencia fluida, divertida y accesible para el usuario, invitándolo a participar no solo gestualmente, sino que también se divierta con el botón, así dejando un recuerdo de su experiencia con el filtro.
 
-## código del proyecto
+## Código del proyecto 2
 
 ```javascript
 let video;
@@ -50,7 +48,7 @@ let currentColor;
 let baseColor;
 let hoverColor;
 
-let marcoGIF; // 🎀 marco animado
+let marcoGIF; // marco animado
 
 function preload() {
   accesorios.push(loadImage('gorromujer.png'));
@@ -59,9 +57,8 @@ function preload() {
   accesorios.push(loadImage('gafashombre.png'));
   accesorios.push(loadImage('brillos.png'));
 
-  marcoGIF = createImg('marcoGIF.gif');
+  marcoGIF = createImg('marcoGIF.gif', '');
 }
-
 
 function setup() {
   createCanvas(640, 480);
@@ -74,16 +71,17 @@ function setup() {
     predictions = results;
   });
 
-  baseColor = color(255); // Blanco
-  hoverColor = color(255, 100, 100); // Rojo claro
+  baseColor = color(255);
+  hoverColor = color(255, 100, 100);
   currentColor = baseColor;
 
   createP('Estado del modelo:').id('status-label');
   createP('Cargando...').id('status');
-    // Mostrar el GIF animado como overlay encima del canvas
-  marcoGIF.position(0, 0);                      // alineado al canvas
-  marcoGIF.size(width, height);                // mismo tamaño del canvas
-  marcoGIF.style('pointer-events', 'none');    // que no bloquee clics
+
+  // Colocar el GIF animado fuera del canvas
+  marcoGIF.position(0, 0);
+  marcoGIF.size(width, height);
+  marcoGIF.style('pointer-events', 'none');
 }
 
 function modelReady() {
@@ -96,9 +94,6 @@ function draw() {
   detectarParpadeo();
   dibujarAccesorio();
   dibujarBoton();
-
-  // Dibujar marco animado al final, encima de todo
-  image(marcoGIF, 0, 0, width, height);
 
   if (blinkCooldown > 0) blinkCooldown--;
 }
@@ -131,6 +126,8 @@ function detectarParpadeo() {
     }
   }
 }
+
+// Para controlar el movimiento de los ojos
 
 function calculateEAR(p1, p2, p3, p4, p5, p6) {
   let A = dist(p2[0], p2[1], p6[0], p6[1]);
@@ -192,12 +189,16 @@ function mousePressed() {
 }
 
 function guardarImagen() {
-  saveCanvas('captura', 'png');
+  marcoGIF.hide(); // Lo oculta momentáneamente
+  setTimeout(() => {
+    saveCanvas('captura', 'png');
+    marcoGIF.show(); // Lo vuelve a mostrar después
+  }, 100);
 }
 
 ```
 
-el código original que citamos es
+El código original que citamos es
 
 ```javascript
 let video;
@@ -258,21 +259,22 @@ function drawKeypoints()  {
 }
 ```
 
-## enlace del proyecto: https://editor.p5js.org/joo08/sketches/8tby3pE8z
+## Enlace del proyecto: https://editor.p5js.org/joo08/sketches/8tby3pE8z
 
-lo hicimos en el editor de p5.js
+Lo hicimos en el editor de p5.js
 
-## documentación multimedia / audiovisual del proyecto funcionando
-
-Código de Prueba del botón dentro del canvas y guardado de imágen 
-https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
-
-https://github.com/user-attachments/assets/e1a056be-8911-4e14-a0a7-80cc2e08bcae
+## Documentación multimedia / audiovisual del proyecto funcionando
 
 
-creación del gif mediante vectores en Ilustrator y animado en Photoshop
+
+https://github.com/user-attachments/assets/af6c51a6-563a-4602-9737-de6ea88f24e0
+
+
+
+
+Creación del gif mediante vectores en Ilustrator y animado en Photoshop
 ![gif proyecto](https://github.com/user-attachments/assets/e70b3e1a-f47f-4578-8b70-d403cae86c97)
-comparativa de los protectos en uso : 
+comparativa de los proyectos en uso : 
 Proyecto 1 en uso ![image](https://github.com/user-attachments/assets/62543841-8345-4767-971c-fe75a2e86cd3)
 Proyecto 2 en uso ![image](https://github.com/user-attachments/assets/c7361bb3-12f4-47d0-851e-8adfa5f7dd9e)
 
@@ -287,25 +289,21 @@ En la segunda versión del trabajo nos enfocamos en como podíamos guardar la im
 
 Con estos elementos resueltos solo nos quedaba ver como podriamos realizar que el botón de guardado de imágen esté dentro del canvas y no afuera, como se suele encontrar de forma "pre-definida".
 
-para conseguir que el botón de guardado esté fuera del canvas necesitabamos
-
-(explicar)
-
-
+Código de Prueba del botón dentro del canvas y guardado de imágen 
+https://editor.p5js.org/Romicancino/sketches/A1fnXUtzD 
 
 Repartición del trabajo: Romina-Creación de los accesorios/gif, Josefa-Código.
 
-## bibliografía
+## Bibliografía
 
-nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
+Nos basamos en el tutorial de https://www.youtube.com/watch?v=YMlhNG3YHz4 y de https://www.youtube.com/watch?v=9WywDPOV5nA
 
-tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
+Tomamos el código base alojado en https://editor.p5js.org/dongjing233/sketches/_Nyg10ve 
 
-(link del botón) 
 
-usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
+Usamos la biblioteca p5.js v 1.11.5 y la biblioteca ml5.js v 0.12.2
 
-## conclusiones
+## Conclusiones
 
 Gracias a la combinación de estas herramientas, el filtro ofrece una experiencia divertida, fluida y accesible, que invita al usuario a participar mediante gestos naturales (como el parpadeo), y a interactuar con el entorno digital de manera lúdica. Además, el botón de captura añade un elemento tangible a la experiencia, permitiendo al usuario guardar un recuerdo personalizado de su paso por el filtro.
 
@@ -316,9 +314,10 @@ Para nuestro proyecto 2 existen varios posibles usos, analizando mejor nuestro e
 
 • Entretenimiento: Usar filtros temáticos siempre es una fuente de entretenimiento, se podria subir la imágen obtenida a redes sociales o hacer la foto obtenida formato sticker para  otras aplicaciones como Whatsapp o Instagram. 
 
-• Márketing : si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
+• Márketing: Si se usa de forma publicitaria, se podria editar los accesorios con elementos de la marca a promocionar 
 
-• Educación : 
+• Educación: Se podrían cambiar los elementos para desarrollar herramientas educdtivas, por ejemplo aprender las partes de la cara.
 
-
+Dimensión ética: 
+Uno de los problemas que detectamos es que la herramienta aunque sea usada para fines de entretenimiento o educativa , si se le da mal uso al momento de descargar la imágen final  está podría contener algún tipo de virus o archivo dañiño para un computador
 
